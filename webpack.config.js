@@ -4,7 +4,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    publicPath: '/',
+    publicPath: '/build/',
     filename: 'bundle.js'
   },
   module: {
@@ -14,10 +14,15 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
-    }]
+    },
+    {
+      test: /\.css$|\.scss$|\.sass$/,
+      loader: 'style!css!sass',
+    }
+  ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx','.css','scss','sass']
   },
   devServer: {
     historyApiFallback: true,
