@@ -1,5 +1,5 @@
 import alertLog from './modulos/alert';
-import './estilos';
+import './estilos'
 
 
 alertLog("Hola desde alert");
