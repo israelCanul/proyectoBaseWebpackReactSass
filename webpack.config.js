@@ -1,31 +1,39 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractCSS = new ExtractTextPlugin('[name].css');
+
+const webpack = require('webpack');
+const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('commons', 'common.js');
+
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
-  output: {
-    path: __dirname,
+  entry: {
+    main:'./src/index.js',
+    about:'./src/about.js'
+  },
+  output:{
+    path:'./build/',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].js',
   },
-  module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
-      }
-    },
-    {
-      test: /\.scss$/,
-      loaders: [ 'style', 'css', 'sass' ]
-    }
-  ]
+  module:{
+    loaders:[
+        {
+          exclude: /node_modules/,
+          loader: 'babel',
+          query: {
+            presets: ['es2015','react','stage-2']
+          }
+        },
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+        },
+    ]
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx','.css','scss','sass']
-  },
+  plugins: [extractCSS,commonsPlugin],
   devServer: {
     historyApiFallback: true,
-    contentBase: './build'
+    contentBase: './build',
+    inline: true,
+    hot: false,
   }
-};
+}
