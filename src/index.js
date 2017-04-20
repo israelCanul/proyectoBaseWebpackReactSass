@@ -1,4 +1,4 @@
-//import '../style/componentStyles.scss';
+import '../style/componentStyles.scss';
 class  narilearsi{
   constructor(){
     //this.imprime = this.imprime.bind(this);

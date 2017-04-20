@@ -1,1 +1,1 @@
-console.dir(_$);
+console.dir(_$.imprime());
