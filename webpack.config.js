@@ -1,8 +1,8 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractCSS = new ExtractTextPlugin('[name].css');
+const extractCSS = new ExtractTextPlugin('/css/[name].css');
 
-const webpack = require('webpack');
-const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('commons', 'common.js');
+//const webpack = require('webpack');
+//const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('commons', '/js/common.js');
 
 module.exports = {
   entry: {
@@ -12,7 +12,7 @@ module.exports = {
   output:{
     path:'./build/',
     publicPath: '/',
-    filename: '[name].js',
+    filename: './js/[name].js',
   },
   module:{
     loaders:[
@@ -25,11 +25,11 @@ module.exports = {
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+          loader: ExtractTextPlugin.extract('css-loader!sass-loader')
         },
     ]
   },
-  plugins: [extractCSS,commonsPlugin],
+  plugins: [extractCSS],
   devServer: {
     historyApiFallback: true,
     contentBase: './build',
@@ -37,3 +37,5 @@ module.exports = {
     hot: false,
   }
 }
+
+  //plugins: [extractCSS,commonsPlugin],
