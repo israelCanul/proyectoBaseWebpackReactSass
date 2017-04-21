@@ -1,0 +1,184 @@
+img{
+  &.img{
+    width: auto;
+
+    &-responsive{
+      width: 100%;
+    }
+  }
+}
+.wrap-items{
+  width: 100%;
+  box-sizing: border-box;
+  &-row{
+    flex-direction: row;
+  }
+  &-column{
+    flex-direction: column;
+  }
+  &.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-vertical{
+      display: flex;
+      align-items: center;
+    }
+    &-horizontal{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &.end{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    &-vertical{
+      display: flex;
+      align-items: flex-end;
+    }
+    &-horizontal{
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  &.start{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &-vertical{
+      display: flex;
+      align-items: flex-start;
+    }
+    &-horizontal{
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.margin{
+  &-out{
+    margin: 0px !important;
+    &-top{
+      margin-top: 0px !important;
+    }
+    &-bottom{
+      margin-bottom: 0px !important;
+    }
+    &-left{
+      margin-left: 0px !important;
+    }
+    &-right{
+      margin-right: 0px !important;
+    }
+  }
+  &-in{
+    @each $medidas, $size in $sizes {
+          @if $medidas=="base" {
+
+          }@else{
+            &-#{$medidas}{
+              margin:$size;
+              &-top{
+                margin-top: $size !important;
+              }
+              &-bottom{
+                margin-bottom: $size !important;
+              }
+              &-left{
+                margin-left: $size !important;
+              }
+              &-right{
+                margin-right: $size !important;
+              }
+            }
+          }
+    }
+  }
+}
+.padding{
+  &-out{
+    padding: 0px !important;
+    &-top{
+      padding-top: 0px !important;
+    }
+    &-bottom{
+      padding-bottom: 0px !important;
+    }
+    &-left{
+      padding-left: 0px !important;
+    }
+    &-right{
+      padding-right: 0px !important;
+    }
+  }
+  &-in{
+    @each $medidas, $size in $sizes {
+          @if $medidas=="base" {
+
+          }@else{
+            &-#{$medidas}{
+              padding:$size !important;
+              &-top{
+                padding-top: $size !important;
+              }
+              &-bottom{
+                padding-bottom: $size !important;
+              }
+              &-left{
+                padding-left: $size !important;
+              }
+              &-right{
+                padding-right: $size !important;
+              }
+            }
+          }
+    }
+  }
+}
+.border{
+  &-rounded{
+    border-radius: 10px;
+    &-top-right{
+      border-top-right-radius:10px;
+    }
+    &-top-left{
+      border-top-left-radius:10px;
+    }
+    &-bottom-right{
+      border-bottom-right-radius:10px;
+    }
+    &-bottom-left{
+      border-bottom-left-radius:10px;
+    }
+  }
+  &-out{
+    border-width: 0px;
+  }
+}
+.text{
+  &-uppercase{
+    text-transform: uppercase;
+  }
+  &-align{
+    &-center{
+      text-align: center;
+    }
+    &-left{
+      text-align: left;
+    }
+    &-right{
+      text-align: right;
+    }
+    &-justify{
+      text-align: justify;
+    }
+  }
+}
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}

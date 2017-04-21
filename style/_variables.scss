@@ -1,0 +1,16 @@
+$numerColumns:12;// columnas del grid
+$desktop: 1200px;//tamano maximo para escritorio
+$desktop-max : 1600px;
+$tablet: 767px;//tamano minimo para tablet
+
+$headerMax : 90px;
+$headerMin : 50px;
+
+
+$sizes: (
+  "base":      10px,
+  "small":  5px,
+  "medium":  15px,
+  "large": 25px,
+  "xlarge": 45px
+);
